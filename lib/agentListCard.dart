@@ -16,6 +16,7 @@ class AgentListCard extends StatelessWidget {
     return Container(
       //16px padding på alle sider, kan også laves med left, top osv.
       padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.all(10),
       //Boxen kan minimum blive ned til 350x450px, ellers kan layoutet ikke ses
       constraints: const BoxConstraints.expand(width: 350, height: 450),
       decoration: BoxDecoration(
