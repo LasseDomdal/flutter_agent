@@ -10,24 +10,65 @@ class AgentList extends StatefulWidget {
 }
 
 class _AgentListState extends State<AgentList> {
+
+  int _selectedIndex = 0;
+
+  static List<Widget> pages = [
+    AgentListBuilderWidget(),
+    Container(color: Colors.green,),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("007 Agents",
-        style: Theme.of(context).textTheme.headline6,
+          style: Theme
+              .of(context)
+              .textTheme
+              .headline6,
+        ),
       ),
-    ),
       body: SafeArea(
-          child: ListView.builder(
-            itemCount: Agent.list.length,
-            itemBuilder: (BuildContext context, int index) {
-              return AgentListCard(
-                agent: Agent.list[index],
-              );
-            },
-            ),
-          ),
+        child: pages[_selectedIndex],
+
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Theme
+            .of(context)
+            .textSelectionTheme
+            .selectionColor,
+        onTap: _onItemTapped,
+        items: <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.person), label: 'Agents'),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.movie), label: 'movies'),
+        ],
+      ),
     );
   }
 }
+
+class AgentListBuilderWidget extends StatelessWidget {
+  const AgentListBuilderWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: Agent.list.length,
+      itemBuilder: (BuildContext context, int index) {
+        return AgentListCard(
+          agent: Agent.list[index],);
+      },
+    );
+  }
+  }
+
+
