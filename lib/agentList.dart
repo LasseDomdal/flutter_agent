@@ -39,7 +39,6 @@ class _AgentListState extends State<AgentList> {
       ),
       body: SafeArea(
         child: pages[_selectedIndex],
-
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
