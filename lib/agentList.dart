@@ -1,6 +1,8 @@
 import 'package:agent/agentListCard.dart';
+import 'package:agent/movieListCard.dart';
 import 'package:flutter/material.dart';
 import 'agent.dart';
+import 'movies.dart';
 
 class AgentList extends StatefulWidget {
   const AgentList({Key? key}) : super(key: key);
@@ -15,7 +17,7 @@ class _AgentListState extends State<AgentList> {
 
   static List<Widget> pages = [
     AgentListBuilderWidget(),
-    Container(color: Colors.green,),
+    MovieListBuilderWidget(),
   ];
 
   void _onItemTapped(int index) {
@@ -40,17 +42,19 @@ class _AgentListState extends State<AgentList> {
 
       ),
       bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.person), label: 'Agents',),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.movie), label: 'movies',),
+        ],
+        currentIndex: _selectedIndex,
         selectedItemColor: Theme
             .of(context)
             .textSelectionTheme
             .selectionColor,
         onTap: _onItemTapped,
-        items: <BottomNavigationBarItem>[
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: 'Agents'),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.movie), label: 'movies'),
-        ],
+
       ),
     );
   }
@@ -69,6 +73,21 @@ class AgentListBuilderWidget extends StatelessWidget {
       },
     );
   }
+}
+
+class MovieListBuilderWidget extends StatelessWidget {
+  const MovieListBuilderWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: Movie.movies.length,
+      itemBuilder: (BuildContext context, int index) {
+        return MovieListCard(
+          movie: Movie.movies[index],);
+      },
+    );
   }
+}
 
 
