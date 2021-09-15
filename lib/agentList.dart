@@ -15,11 +15,15 @@ class _AgentListState extends State<AgentList> {
 
   int _selectedIndex = 0;
 
+  // har widgets på en liste.
   static List<Widget> pages = [
     AgentListBuilderWidget(),
     MovieListBuilderWidget(),
   ];
 
+  // sørger for det er muligt at skifte selectedindex, når buttomNavigationbar
+  // skifter, og dermed skiftes der til den widget som passer med selectedIndex på pages.
+  // altså mellem 0 og 1.
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -38,6 +42,7 @@ class _AgentListState extends State<AgentList> {
         ),
       ),
       body: SafeArea(
+        // bruger pages listen
         child: pages[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -52,6 +57,8 @@ class _AgentListState extends State<AgentList> {
             .of(context)
             .textSelectionTheme
             .selectionColor,
+        backgroundColor: Colors.white,
+        unselectedItemColor: Colors.black,
         onTap: _onItemTapped,
 
       ),
@@ -74,6 +81,8 @@ class AgentListBuilderWidget extends StatelessWidget {
   }
 }
 
+// listview.builder skaber det ønskede array, og putter det på en liste.
+// itemcount = listens længde. bruger movielistCard og tager enkelte index og sætter på listen.
 class MovieListBuilderWidget extends StatelessWidget {
   const MovieListBuilderWidget({Key? key}) : super(key: key);
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'agentTheme.dart';
 import 'movies.dart';
 
+// movielistCard - laver design og placering for det data som kommer fra movies.dart.
 class MovieListCard extends StatelessWidget {
   const MovieListCard({Key? key, required this.movie}) : super(key: key);
 
@@ -41,7 +42,7 @@ class MovieListCard extends StatelessWidget {
           ),
           Positioned(
             child: Text(
-               movie.agent.name + " " + movie.agent.active,
+               movie.agent.name + " - " + movie.agent.active,
               style: AgentTheme.darkTextTheme.headline2,
             ),
             bottom: 30,

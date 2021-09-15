@@ -3,6 +3,7 @@ import 'package:agent/agent.dart';
 
 import 'agent.dart';
 
+// list of james bond movies with title, year, poster, and acces to info about the actor.
 class Movie {
 
   String title;
