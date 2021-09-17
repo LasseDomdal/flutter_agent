@@ -2,6 +2,8 @@ import 'package:agent/agentListCard.dart';
 import 'package:agent/movieListCard.dart';
 import 'package:flutter/material.dart';
 import 'agent.dart';
+import 'agentWidget.dart';
+import 'movieListWidget.dart';
 import 'movies.dart';
 
 class AgentList extends StatefulWidget {
@@ -66,36 +68,7 @@ class _AgentListState extends State<AgentList> {
   }
 }
 
-class AgentListBuilderWidget extends StatelessWidget {
-  const AgentListBuilderWidget({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: Agent.list.length,
-      itemBuilder: (BuildContext context, int index) {
-        return AgentListCard(
-          agent: Agent.list[index],);
-      },
-    );
-  }
-}
 
-// listview.builder skaber det ønskede array, og putter det på en liste.
-// itemcount = listens længde. bruger movielistCard og tager enkelte index og sætter på listen.
-class MovieListBuilderWidget extends StatelessWidget {
-  const MovieListBuilderWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: Movie.movies.length,
-      itemBuilder: (BuildContext context, int index) {
-        return MovieListCard(
-          movie: Movie.movies[index],);
-      },
-    );
-  }
-}
 
 
