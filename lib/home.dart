@@ -6,14 +6,14 @@ import 'agentWidget.dart';
 import 'movieListWidget.dart';
 import 'movies.dart';
 
-class AgentList extends StatefulWidget {
-  const AgentList({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  _AgentListState createState() => _AgentListState();
+  _HomeState createState() => _HomeState();
 }
 
-class _AgentListState extends State<AgentList> {
+class _HomeState extends State<Home> {
 
   int _selectedIndex = 0;
 
