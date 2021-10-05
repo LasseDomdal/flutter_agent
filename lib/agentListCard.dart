@@ -7,6 +7,7 @@ class AgentListCard extends StatelessWidget {
 
   const AgentListCard({Key? key, required this.agent, required this.didSelectAgent}) : super(key: key);
 
+
   final Agent agent;
 
   // final String agentName = agent.name;
@@ -17,7 +18,6 @@ class AgentListCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => didSelectAgent(agent),
       child: Container(
         //16px padding på alle sider, kan også laves med left, top osv.
         padding: const EdgeInsets.all(16),

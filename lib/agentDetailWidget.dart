@@ -13,6 +13,6 @@ class AgentDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: const Text('Agent Details')),
-        body: Center(child: Text('Hello, ${agent.name}')));
+        body: Center(child: Text('Hello, $agent')));
   }
 }
