@@ -9,17 +9,22 @@ class AgentListBuilderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return Scaffold(
+        appBar: AppBar(
+        title: const Text('Users'),
+    ),
+    body: ListView.builder(
       itemCount: Agent.list.length,
-      itemBuilder: (BuildContext context, int index) {
+      itemBuilder: (context, index) {
         return AgentListCard(
             agent: Agent.list[index], didSelectAgent: (agent) {
-          // final agent = Agent.list[index];
+          final agent = Agent.list[index];
               child: ListTile(
-                title: Text(agent),
+                // title: Text( agent),
                 onTap: () => didSelectAgent(agent),
               );
-        },);
-      });
+        });
+    )
+    ));
   }
 }

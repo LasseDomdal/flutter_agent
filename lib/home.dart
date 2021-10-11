@@ -28,8 +28,9 @@ class _HomeState extends State<Home> {
         pages: [
           MaterialPage(child: AgentListBuilderWidget(
             didSelectAgent: (agent) {
-              setState(() => _selectedAgent = agent
-             );
+              setState(() =>
+              _selectedAgent = agent
+              );
             },)
           ),
           if(_selectedAgent != null)
